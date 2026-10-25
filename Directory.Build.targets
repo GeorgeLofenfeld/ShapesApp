@@ -1,0 +1,13 @@
+<Project>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)license.md">
+      <Link>license.md</Link>
+    </None>
+  </ItemGroup>
+  <Target Name="CopyLicenseToOutput" AfterTargets="Build">
+    <Copy 
+      SourceFiles="$(MSBuildThisFileDirectory)license.md" 
+      DestinationFolder="$(TargetDir)" 
+      SkipUnchangedFiles="true" />
+  </Target>
+</Project>

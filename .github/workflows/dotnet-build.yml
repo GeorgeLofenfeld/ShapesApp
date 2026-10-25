@@ -1,0 +1,47 @@
+name: .NET Framework 4.7.2 Build & Artifacts
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Настройка инструментов сборки Windows
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    # Настройка пакетного менеджера NuGet
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    # Восстановление зависимостей
+    - name: Restore NuGet packages
+      run: nuget restore
+
+    # Сборка проекта
+    - name: Build Solution
+      run: msbuild /p:Configuration=Release /p:Platform="Any CPU"
+
+    # Загрузка артефактов на сервера GitHub
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+
+    # Имя архива
+        name: ShapesAppRelease      
+        path: |
+          **/bin/Release/**/*.exe
+          **/bin/Release/**/*.dll
+          **/bin/Release/**/*.config
+          **/bin/Release/**/license.md
+
+    # Ошибка, если .exe файлы не найдутся
+        if-no-files-found: error          

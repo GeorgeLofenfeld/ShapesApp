@@ -1,0 +1,48 @@
+## ====== Результаты сборки (Build Outputs) ======
+[Dd]ebug/
+[Dd]ebugPS/
+[Rr]eleases/
+[Xx]64/
+[Xx]86/
+[Bb]in/
+[Oo]bj/
+
+## ====== Артефакты WPF и XAML ======
+# Файлы разметки, сгенерированные при сборке WPF
+*.g.cs
+*.g.i.cs
+*.baml
+
+## ====== Настройки Visual Studio и кэш ======
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## ====== Результаты тестов (Unit Tests) ======
+[Tt]est[Rr]esults/
+*.trx
+# Кэш инструментов тестирования (например, SpecFlow, Coverlet)
+_ReSharper*/
+*.nuget.props
+*.nuget.targets
+
+## ====== Пакеты и зависимости ======
+# Папка пакетов старого формата (если используется)
+packages/
+# Файлы блокировки пакетных менеджеров (опционально, но часто игнорируют)
+project.lock.json
+project.assets.json
+
+## ====== Локальные секреты и конфигурация ======
+# Игнорируем файлы настроек разработки, если там есть пароли
+appsettings.Development.json
+*.Secrets.json
+*.usersecrets
+
+## ====== Временные файлы ОС ======
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
