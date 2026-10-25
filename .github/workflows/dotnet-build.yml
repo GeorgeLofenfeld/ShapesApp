@@ -2,9 +2,9 @@ name: .NET Framework 4.7.2 Build & Artifacts
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: [ "main", "master", "dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
 
 jobs:
   build:
