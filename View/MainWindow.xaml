@@ -1,0 +1,58 @@
+﻿<Window x:Class="ShapesApp.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShapesApp"
+        xmlns:models="clr-namespace:ShapesApp.Model"
+        xmlns:vms="clr-namespace:ShapesApp.ViewModel"
+        mc:Ignorable="d"
+        Title="Геометрические фигуры" Height="450" Width="600">
+
+    <Window.DataContext>
+        <vms:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <!-- Круг -->
+        <DataTemplate DataType="{x:Type models:CircleModel}">
+            <StackPanel Margin="15" HorizontalAlignment="Center">
+                <Ellipse Width="{Binding Radius}" Height="{Binding Radius}" 
+                     Fill="Crimson" Stroke="Black" StrokeThickness="1"/>
+                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,0"/>
+                <TextBlock Text="{Binding Area, StringFormat='S = {0:F1}'}" HorizontalAlignment="Center" FontSize="11" Foreground="Gray"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <!-- Квадрат -->
+        <DataTemplate DataType="{x:Type models:SquareModel}">
+            <StackPanel Margin="15" HorizontalAlignment="Center">
+                <Rectangle Width="{Binding Side}" Height="{Binding Side}" 
+                       Fill="DodgerBlue" Stroke="Black" StrokeThickness="1"/>
+                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,0"/>
+                <TextBlock Text="{Binding Area, StringFormat='S = {0:F1}'}" HorizontalAlignment="Center" FontSize="11" Foreground="Gray"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <!-- Прямоугольник -->
+        <DataTemplate DataType="{x:Type models:RectangleModel}">
+            <StackPanel Margin="15" HorizontalAlignment="Center">
+                <Rectangle Width="{Binding Width}" Height="{Binding Height}" 
+                       Fill="LimeGreen" Stroke="Black" StrokeThickness="1"/>
+                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,0"/>
+                <TextBlock Text="{Binding Area, StringFormat='S = {0:F1}'}" HorizontalAlignment="Center" FontSize="11" Foreground="Gray"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <!-- <ItemsControl> автоматически подтянет <DataTemplate> к элементам -->
+        <ItemsControl ItemsSource="{Binding Shapes}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Grid>
+</Window>
