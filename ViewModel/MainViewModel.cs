@@ -12,12 +12,12 @@ namespace ShapesApp.ViewModel
         /// <summary>
         /// Динамическая колелкция для хранения фигур
         /// </summary>
-        public ObservableCollection<ShapeAbstract> Shapes { get; }
+        public ObservableCollection<ShapeAbstractModel> Shapes { get; }
 
         public MainViewModel()
         {
             // Заполняем коллекцию фигурами с тестовыми значениями
-            Shapes = new ObservableCollection<ShapeAbstract>
+            Shapes = new ObservableCollection<ShapeAbstractModel>
             {
                 ShapeFactory.CreateShape(ShapeType.Circle, 80),
                 ShapeFactory.CreateShape(ShapeType.Square, 100),

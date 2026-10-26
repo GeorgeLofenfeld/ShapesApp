@@ -5,7 +5,7 @@ namespace ShapesApp.Model
     /// <summary>
     /// Круг
     /// </summary>
-    public class CircleModel : ShapeAbstract
+    public class CircleModel : ShapeAbstractModel
     {
         public double Radius { get; }
 

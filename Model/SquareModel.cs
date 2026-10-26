@@ -3,7 +3,7 @@
     /// <summary>
     /// Квадрат
     /// </summary>
-    public class SquareModel : ShapeAbstract
+    public class SquareModel : ShapeAbstractModel
     {
         /// <summary>
         /// Сторона

@@ -3,7 +3,7 @@
     /// <summary>
     /// Абстрактный класс фигуры
     /// </summary>
-    public abstract class ShapeAbstract
+    public abstract class ShapeAbstractModel
     {
         /// <summary>
         /// Название фигуры

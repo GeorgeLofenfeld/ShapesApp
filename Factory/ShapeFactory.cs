@@ -20,11 +20,11 @@ namespace ShapesApp.Factory
         /// <param name="parameters">Массив необходимых значений</param>
         /// <returns>Объектное представление фигуры</returns>
         /// <exception cref="ArgumentException"></exception>
-        public static ShapeAbstract CreateShape(ShapeType type, params double[] parameters)
+        public static ShapeAbstractModel CreateShape(ShapeType type, params double[] parameters)
         {
             if (parameters == null || parameters.Length == 0)
             {
-                throw new ArgumentException("Массив параметров не может быть пустым.");
+                throw new ArgumentException("Массив параметров не может быть пустым");
             }
 
             switch (type)
@@ -38,7 +38,7 @@ namespace ShapesApp.Factory
                 case ShapeType.Rectangle:
                     if (parameters.Length < 2)
                     {
-                        throw new ArgumentException("Для прямоугольника нужно 2 параметра (ширина и высота).");
+                        throw new ArgumentException("Для прямоугольника нужно 2 параметра (ширина и высота)");
                     }
                     return new RectangleModel(parameters[0], parameters[1]);
 

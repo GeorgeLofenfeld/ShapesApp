@@ -3,7 +3,7 @@
     /// <summary>
     /// Прямоугольник
     /// </summary>
-    public class RectangleModel : ShapeAbstract
+    public class RectangleModel : ShapeAbstractModel
     {
         /// <summary>
         /// Ширина
